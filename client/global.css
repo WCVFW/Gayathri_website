@@ -1,0 +1,248 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 214 84% 20%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 43 74% 49%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 214 84% 20%;
+
+    --radius: 0.5rem;
+
+    /* Professional CA brand colors */
+    --navy: 214 84% 20%;
+    --navy-foreground: 0 0% 98%;
+    --gold: 43 74% 49%;
+    --gold-foreground: 0 0% 9%;
+    --light-gray: 210 40% 96.1%;
+    --dark-gray: 215.4 16.3% 46.9%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 214 84% 35%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 43 74% 59%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 214 84% 35%;
+
+    /* Professional CA brand colors - dark mode */
+    --navy: 214 84% 35%;
+    --navy-foreground: 0 0% 98%;
+    --gold: 43 74% 59%;
+    --gold-foreground: 0 0% 9%;
+    --light-gray: 217.2 32.6% 17.5%;
+    --dark-gray: 215 20.2% 65.1%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+/* } */
+
+/* styles.css */
+
+/* GLOBAL FONT */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(34, 34, 34);
+  }
+
+/* HEADINGS */
+h1 {
+    font-size: 30px;
+    /* Equivalent to md:text-3xl */
+    font-weight: 800;
+    line-height: 36px;
+    margin-bottom: 16px;
+    color: rgb(34, 34, 34);
+  }
+
+h2 {
+    font-size: 24px;
+    /* text-2xl */
+    font-weight: 800;
+    line-height: 32px;
+    margin-bottom: 16px;
+    color: rgb(34, 34, 34);
+  }
+
+/* PARAGRAPHS */
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgb(34, 34, 34);
+    margin-bottom: 12px;
+  }
+
+/* SECTION BUTTONS */
+.section-button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    color: rgb(34, 34, 34);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+/* .section-button.active {
+    background-color: #FFD700;
+    /* gold */
+/* color: white; */
+/* } */
+/* LIST STYLING */
+ul,
+ol {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgb(34, 34, 34);
+    padding-left: 1.25rem;
+    /* list-inside */
+    margin-bottom: 16px;
+  }
+
+ul li,
+  ol li {
+    margin-bottom: 8px;
+  }
+
+/* TABLE */
+table {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+  }
+
+table th,
+  table td {
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    text-align: left;
+  }
+
+table thead {
+    background-color: #f3f4f6;
+    /* Tailwind's gray-100 */
+    font-weight: 600;
+  }
+
+/* ICON LIST STYLING (inside checklist & timelines) */
+.icon-list {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgb(34, 34, 34);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 12px;
+  }
+
+.icon-list svg {
+    color: #FFD700;
+    /* gold */
+    margin-top: 4px;
+  }
+
+/* SECTION SPACING */
+.section {
+    margin-bottom: 40px;
+  }
+
+/* CALZONE HIGHLIGHT TEXT */
+.calzone-highlight {
+    font-weight: 700;
+    color: rgb(34, 34, 34);
+  }
+
+}
