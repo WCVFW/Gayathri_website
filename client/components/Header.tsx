@@ -1,10 +1,10 @@
-import {useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 import logo from '@/assets/gayathrilogo.png';
 import Dropdown from './Dropdown';
 
-// Define the type for dropdown state
+// Dropdown state type
 type DropdownState = {
   [key: string]: boolean;
 };
@@ -86,7 +86,11 @@ export function Header() {
       <li key={index}>
         <Link
           to={`/services/${base}/${slugify(item)}`}
-          className="block py-1 px-2 rounded hover:bg-green-100 hover:text-green-700 transition-all"
+          onClick={() => {
+            setDropdowns({});
+            setIsMenuOpen(false); // Optional: close mobile menu too
+          }}
+          className="block py-1 px-2 rounded hover:bg-green-100 hover:text-green-700 transition-all text-xs leading-snug"
         >
           {item}
         </Link>
@@ -94,7 +98,7 @@ export function Header() {
     ));
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50 font-[Poppins] text-sm text-[#0a2540]">
+    <header className="bg-white shadow-md sticky top-0 z-50 font-poppins text-sm text-[#0a2540]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center space-x-3 group">
@@ -106,21 +110,22 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6 ml-8 text-[15px] font-medium relative">
+          <nav className="hidden md:flex items-center gap-6 ml-8 text-[14px] font-medium relative">
             <Dropdown
               title="New Business"
               open={dropdowns.business}
               setOpen={(o) => toggleDropdown('business', o)}
               positionClass="left-1/2 -translate-x-1/2"
+              panelWidthClass="w-[580px]"
             >
-              <div className="w-[620px] grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="text-xs leading-snug grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <h3 className="font-semibold border-b pb-2 mb-3 text-gray-800">Registrations</h3>
-                  <ul className="space-y-2 text-gray-700">{renderListLinks(companyRegistrations, 'newbusiness')}</ul>
+                  <h3 className="font-semibold border-b pb-2 mb-2 text-gray-800 text-sm">Registrations</h3>
+                  <ul className="space-y-1 text-gray-700">{renderListLinks(companyRegistrations, 'newbusiness')}</ul>
                 </div>
                 <div>
-                  <h3 className="font-semibold border-b pb-2 mb-3 text-gray-800">Licenses</h3>
-                  <ul className="space-y-2 text-gray-700">{renderListLinks(licenses, 'newbusiness')}</ul>
+                  <h3 className="font-semibold border-b pb-2 mb-2 text-gray-800 text-sm">Licenses</h3>
+                  <ul className="space-y-1 text-gray-700">{renderListLinks(licenses, 'newbusiness')}</ul>
                 </div>
               </div>
             </Dropdown>
@@ -130,15 +135,16 @@ export function Header() {
               open={dropdowns.tax}
               setOpen={(o) => toggleDropdown('tax', o)}
               positionClass="left-1/2 -translate-x-1/2"
+              panelWidthClass="w-[580px]"
             >
-              <div className="w-[620px] grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="text-xs leading-snug grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <h3 className="font-semibold border-b pb-2 mb-3 text-gray-800">GST</h3>
-                  <ul className="space-y-2 text-gray-700">{renderListLinks(gstServices, 'gst')}</ul>
+                  <h3 className="font-semibold border-b pb-2 mb-2 text-gray-800 text-sm">GST</h3>
+                  <ul className="space-y-1 text-gray-700">{renderListLinks(gstServices, 'gst')}</ul>
                 </div>
                 <div>
-                  <h3 className="font-semibold border-b pb-2 mb-3 text-gray-800">Income Tax</h3>
-                  <ul className="space-y-2 text-gray-700">{renderListLinks(incomeTaxServices, 'income-tax')}</ul>
+                  <h3 className="font-semibold border-b pb-2 mb-2 text-gray-800 text-sm">Income Tax</h3>
+                  <ul className="space-y-1 text-gray-700">{renderListLinks(incomeTaxServices, 'income-tax')}</ul>
                 </div>
               </div>
             </Dropdown>
@@ -148,17 +154,18 @@ export function Header() {
               open={dropdowns.compliance}
               setOpen={(o) => toggleDropdown('compliance', o)}
               positionClass="left-0"
+              panelWidthClass="w-[300px]"
             >
-              <div className="w-[420px]">
-                <ul className="space-y-2 text-gray-700">{renderListLinks(complianceItems, 'compliance')}</ul>
-              </div>
+              <ul className="space-y-1 text-gray-700 text-xs leading-snug">
+                {renderListLinks(complianceItems, 'compliance')}
+              </ul>
             </Dropdown>
 
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className="hover:text-green-600 transition-colors text-gray-800"
+                className="hover:text-green-600 transition-colors text-gray-800 text-sm"
               >
                 {item.name}
               </Link>
@@ -173,25 +180,25 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Dropdowns */}
+        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t shadow-xl px-4 py-4 space-y-4 transition-all duration-300 ease-in-out">
             <DropdownMobile title="New Business">
-              <h4 className="font-semibold text-gray-800 mb-2">Registrations</h4>
-              <ul className="space-y-1 text-gray-700">{renderListLinks(companyRegistrations, 'newbusiness')}</ul>
-              <h4 className="font-semibold text-gray-800 mt-4 mb-2">Licenses</h4>
-              <ul className="space-y-1 text-gray-700">{renderListLinks(licenses, 'newbusiness')}</ul>
+              <h4 className="font-semibold text-gray-800 mb-2 text-sm">Registrations</h4>
+              <ul className="space-y-1 text-gray-700 text-xs leading-snug">{renderListLinks(companyRegistrations, 'newbusiness')}</ul>
+              <h4 className="font-semibold text-gray-800 mt-4 mb-2 text-sm">Licenses</h4>
+              <ul className="space-y-1 text-gray-700 text-xs leading-snug">{renderListLinks(licenses, 'newbusiness')}</ul>
             </DropdownMobile>
 
             <DropdownMobile title="Compliance">
-              <ul className="space-y-1 text-gray-700">{renderListLinks(complianceItems, 'compliance')}</ul>
+              <ul className="space-y-1 text-gray-700 text-xs leading-snug">{renderListLinks(complianceItems, 'compliance')}</ul>
             </DropdownMobile>
 
             <DropdownMobile title="GST & Income Tax">
-              <h4 className="font-semibold text-gray-800 mb-2">GST</h4>
-              <ul className="space-y-1 text-gray-700">{renderListLinks(gstServices, 'gst')}</ul>
-              <h4 className="font-semibold text-gray-800 mt-4 mb-2">Income Tax</h4>
-              <ul className="space-y-1 text-gray-700">{renderListLinks(incomeTaxServices, 'income-tax')}</ul>
+              <h4 className="font-semibold text-gray-800 mb-2 text-sm">GST</h4>
+              <ul className="space-y-1 text-gray-700 text-xs leading-snug">{renderListLinks(gstServices, 'gst')}</ul>
+              <h4 className="font-semibold text-gray-800 mt-4 mb-2 text-sm">Income Tax</h4>
+              <ul className="space-y-1 text-gray-700 text-xs leading-snug">{renderListLinks(incomeTaxServices, 'income-tax')}</ul>
             </DropdownMobile>
 
             {navigation.map((item) => (
@@ -199,7 +206,7 @@ export function Header() {
                 key={item.name}
                 to={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-gray-800 hover:text-green-600 py-2 border-b border-gray-200 last:border-b-0"
+                className="block text-gray-800 hover:text-green-600 py-2 border-b border-gray-200 last:border-b-0 text-sm"
               >
                 {item.name}
               </Link>
@@ -211,14 +218,7 @@ export function Header() {
   );
 }
 
-// Mobile Dropdown
-function DropdownMobile({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
+function DropdownMobile({ title, children }: { title: string; children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
 
   return (

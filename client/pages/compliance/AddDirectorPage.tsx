@@ -3,40 +3,46 @@ import { FaBuilding, FaClipboardCheck, FaFileAlt, FaFileUpload, FaIdCard, FaMapM
 
 const AddDirectorPage = () => {
   return (
-    <div className="bg-white font-sans text-left">
+    <div className="font-sans text-left">
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           {/* Page Heading */}
-          <section>
-            <h2 className="text-4xl sm:text-5xl font-bold text-navy-700 mb-6 flex items-center gap-2">
-              <FaUserPlus className="text-navy-700" />
+          <section className="px-4 sm:px-8 lg:px-16 py-10">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-navy-700 mb-4 flex items-center gap-2">
+              <FaUserPlus className="text-navy-700 w-6 h-6" />
               Adding a Director
             </h2>
-            <p className="text-lg text-gray-700 mb-4">
+
+            <p className="text-sm sm:text-base text-gray-700 mb-3 leading-relaxed">
               Adding a director to a company may seem complex, but following the correct legal
               procedures ensures a <strong>valid and compliant appointment.</strong> The process may
               vary depending on the company's structure and jurisdiction, but some general steps are
               common across all companies.
             </p>
-            <p className="text-lg text-gray-700">
+
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               At <strong>Calzone,</strong> we simplify the entire process, ensuring compliance with the
               <strong> Companies Act, 2013</strong> and helping businesses appoint the right directors
               with ease.
             </p>
           </section>
-
           {/* Sticky Navigation */}
-          <nav className="sticky top-0 z-10 bg-white shadow-sm py-3 mb-10 border-y border-gray-200">
-            <ul className="flex flex-wrap gap-6 justify-start text-sm font-medium text-blue-700">
-              <li><a href="#AppnDir" className="hover:underline">Why Appoint</a></li>
-              <li><a href="#TypeDirector" className="hover:underline">Types of Directors</a></li>
-              <li><a href="#StepBStep" className="hover:underline">Step-by-Step</a></li>
-              <li><a href="#AppntPro" className="hover:underline">Procedure</a></li>
-              <li><a href="#Dcrequired" className="hover:underline">Documents</a></li>
-              <li><a href="#Rsln" className="hover:underline">Resolution</a></li>
-              <li><a href="#Why-Choose" className="hover:underline">Why Calzone</a></li>
-            </ul>
-          </nav>
+          <div className="mb-8">
+            <h2 className="text-2xl font-semibold mb-4 tracking-wide leading-snug">
+              Things to Know
+            </h2>
+            <nav className="sticky top-0 z-20 bg-white shadow-sm py-3 mb-6 border-y border-gray-200">
+              <ul className="flex flex-wrap gap-4 sm:gap-6 px-4 text-sm sm:text-base font-medium text-blue-700">
+                <li><a href="#AppnDir" className="hover:underline">Why Appoint</a></li>
+                <li><a href="#TypeDirector" className="hover:underline">Types of Directors</a></li>
+                <li><a href="#StepBStep" className="hover:underline">Step-by-Step</a></li>
+                <li><a href="#AppntPro" className="hover:underline">Procedure</a></li>
+                <li><a href="#Dcrequired" className="hover:underline">Documents</a></li>
+                <li><a href="#Rsln" className="hover:underline">Resolution</a></li>
+                <li><a href="#Why-Choose" className="hover:underline">Why Calzone</a></li>
+              </ul>
+            </nav>
+          </div>
 
           {/* Sections */}
           <div id="AppnDir" className="mb-12 bg-white px-4 md:px-8 py-6 rounded-lg shadow-sm">
@@ -218,66 +224,151 @@ const AddDirectorPage = () => {
           <div className="space-y-12">
 
             {/* Documents Required */}
-            <div id="Dcrequired" className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6 text-indigo-800 flex items-center gap-2">
-                <FaFileAlt className="text-indigo-600" />
-                Documents Required
+            <div id="procedure" className="">
+              <h3 className="text-xl sm:text-2xl font-semibold text-indigo-800 flex items-center gap-2">
+                <FaUserCheck className="text-indigo-600 text-lg sm:text-xl" />
+                Procedure for Appointment of Directors
               </h3>
-              <ul className="text-gray-700 space-y-3 text-base">
-                <li className="flex items-start gap-3"><FaIdCard className="text-gray-500 mt-1" /> PAN Card</li>
-                <li className="flex items-start gap-3"><FaIdCard className="text-gray-500 mt-1" /> ID Proof (Aadhaar, Voter ID, etc.)</li>
-                <li className="flex items-start gap-3"><FaMapMarkerAlt className="text-gray-500 mt-1" /> Address Proof (Utility Bill, Rent Agreement)</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Passport-size Photo</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> DSC (Digital Signature Certificate)</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Form DIR-2 (Consent to act)</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Form DIR-12 (Appointment filing)</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Board Resolution copy</li>
-              </ul>
-              <p className="mt-6 text-gray-700">
-                Our <strong>Calzone experts</strong> assist in collecting and filing all required documents to ensure a <strong>hassle-free process</strong>.
+
+              <ol className="list-decimal pl-5 space-y-4 text-gray-700 text-sm sm:text-base">
+                <li>
+                  <strong>Identify the Need for a Director:</strong> Determine if a director is needed due to resignation, expansion, or regulatory compliance.
+                </li>
+                <li>
+                  <strong>Identify & Evaluate Candidates:</strong> Consider internal promotions, external hiring, or industry referrals.
+                </li>
+                <li>
+                  <strong>Conduct Due Diligence:</strong> Verify the candidate's qualifications, experience, and potential conflicts of interest.
+                </li>
+                <li>
+                  <strong>Board Approval & General Meeting:</strong> The Board reviews the candidate and, if approved, a resolution is passed in a general meeting.
+                </li>
+                <li>
+                  <strong>File Necessary Documents with ROC:</strong> Submit required forms, including the director's consent and declaration of eligibility.
+                </li>
+              </ol>
+
+              <p className="mt-6 text-gray-700 text-sm sm:text-base">
+                <strong>Calzone</strong> ensures every step is completed accurately and efficiently, avoiding delays or compliance issues.
               </p>
             </div>
+            <div id="Dcrequired" className="">
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 text-indigo-800 flex items-center gap-2">
+                <FaFileAlt className="text-indigo-600 text-base sm:text-lg" />
+                Documents Required for Appointing a Director
+              </h3>
 
+              <p className="text-gray-700 mb-4 text-sm sm:text-base">
+                To appoint a director, the following documents are required:
+              </p>
+
+              <ul className="space-y-3 text-gray-700 text-sm sm:text-base">
+                <li className="flex items-start gap-3">
+                  <FaIdCard className="text-indigo-500 mt-1" />
+                  PAN Card of the Director
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaIdCard className="text-indigo-500 mt-1" />
+                  Identification Proof (Aadhaar card, Voter ID, or Driver's License)
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaMapMarkerAlt className="text-indigo-500 mt-1" />
+                  Proof of Residence (Utility bill or Rental Agreement)
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaFileAlt className="text-indigo-500 mt-1" />
+                  Passport-Size Photograph
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaFileAlt className="text-indigo-500 mt-1" />
+                  Digital Signature Certificate (DSC)
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaFileAlt className="text-indigo-500 mt-1" />
+                  Form DIR-2 (Consent to act as a director)
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaFileAlt className="text-indigo-500 mt-1" />
+                  Form DIR-12 (Appointment details filed with ROC)
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaFileAlt className="text-indigo-500 mt-1" />
+                  Board Resolution for Appointment
+                </li>
+              </ul>
+
+              <p className="mt-6 text-gray-700 text-sm sm:text-base">
+                Our <strong>Calzone experts</strong> will assist in collecting and filing these documents to ensure a <strong>hassle-free process</strong>.
+              </p>
+            </div>
             {/* Appointment Resolution */}
-            <div id="Rsln" className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6 text-indigo-800 flex items-center gap-2">
-                <div className="text-indigo-600" />
+            <div id="Rsln" className="bg-white">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-5 text-indigo-800 flex items-center gap-2">
+                <FaUserCheck className="text-indigo-600 text-lg sm:text-xl" />
                 Appointment Resolution
               </h3>
-              <p className="text-gray-700 mb-4">A resolution must include:</p>
-              <ul className="text-gray-700 space-y-3 text-base">
-                <li className="flex items-start gap-3"><FaUserCheck className="text-gray-500 mt-1" /> Director's Name</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Appointment Date</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Term (if applicable)</li>
-                <li className="flex items-start gap-3"><div className="text-gray-500 mt-1" /> Qualifications & Experience</li>
+
+              <p className="text-gray-700 mb-4 text-sm sm:text-base">
+                A Board or Shareholder Resolution is required to appoint a director. The resolution must include:
+              </p>
+
+              <ul className="text-gray-700 space-y-3 text-sm sm:text-base">
+                <li className="flex items-start gap-3">
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  Director's Name
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  Appointment Date
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  Term of Appointment (if applicable)
+                </li>
+                <li className="flex items-start gap-3">
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  Relevant Qualifications & Experience
+                </li>
               </ul>
-              <p className="mt-6 text-gray-700">
-                <strong>Calzone</strong> ensures your resolution is <strong>legally sound</strong> and properly <strong>filed with the authorities</strong>.
+
+              <p className="mt-6 text-gray-700 text-sm sm:text-base">
+                The resolution must be passed in accordance with the company’s AOA and, in some cases, may require shareholder approval.
+              </p>
+
+              <p className="mt-4 text-gray-700 text-sm sm:text-base">
+                <strong>Calzone</strong> ensures your resolution is <strong>legally sound</strong> and properly <strong>filed with the authorities</strong> to avoid any compliance issues.
               </p>
             </div>
-
             {/* Why Choose Calzone */}
-            <div id="Why-Choose" className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-2xl font-semibold mb-6 text-indigo-800 flex items-center gap-2">
-                <FaRegCheckCircle className="text-indigo-600" />
+            <div id="Why-Choose" className="">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-5 text-indigo-800 flex items-center gap-2">
+                <FaRegCheckCircle className="text-indigo-600 text-lg sm:text-xl" />
                 Why Choose Calzone?
               </h3>
-              <ul className="text-gray-700 space-y-3 text-base">
+              <ul className="text-gray-700 space-y-4 text-sm sm:text-base">
                 <li className="flex items-start gap-3">
-                  <div className="text-gray-500 mt-1" />
-                  <span><strong>End-to-End Support</strong> – We handle all paperwork and filings from start to finish.</span>
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  <span>
+                    <strong>End-to-End Support</strong> – We handle all paperwork and ROC filings from start to finish.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="text-gray-500 mt-1" />
-                  <span><strong>Expert Guidance</strong> – We ensure full compliance with the Companies Act, 2013.</span>
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  <span>
+                    <strong>Expert Guidance</strong> – Full compliance with the <span className="whitespace-nowrap">Companies Act, 2013.</span>
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <FaUserCheck className="text-gray-500 mt-1" />
-                  <span><strong>Quick & Hassle-Free</strong> – No delays or errors during appointment.</span>
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  <span>
+                    <strong>Quick & Hassle-Free</strong> – No delays or errors during the appointment process.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="text-gray-500 mt-1" />
-                  <span><strong>Transparent Pricing</strong> – No hidden charges or last-minute surprises.</span>
+                  <FaUserCheck className="text-indigo-500 mt-1" />
+                  <span>
+                    <strong>Transparent Pricing</strong> – No hidden fees or surprise costs.
+                  </span>
                 </li>
               </ul>
             </div>

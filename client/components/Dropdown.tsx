@@ -7,15 +7,21 @@ interface DropdownProps {
   setOpen: (val: boolean) => void;
   children: ReactNode;
   positionClass?: string;
+  panelWidthClass?: string;
 }
 
-function Dropdown({ title, open, setOpen, children }: DropdownProps) {
+function Dropdown({
+  title,
+  open,
+  setOpen,
+  children,
+  positionClass = 'left-0',
+  panelWidthClass = 'w-[280px]',
+}: DropdownProps) {
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setOpen(true);
   };
 
@@ -27,55 +33,34 @@ function Dropdown({ title, open, setOpen, children }: DropdownProps) {
 
   useEffect(() => {
     return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, []);
 
   return (
     <div
-      className="relative group"
+      className="relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Dropdown Trigger */}
-      <div className="flex items-center cursor-pointer space-x-1 hover:text-green-600 transition-colors py-2">
-        <span className="capitalize">{title}</span>
+      <div className="flex items-center space-x-1 cursor-pointer text-gray-800 hover:text-green-600 transition-colors py-2 px-1">
+        <span className="capitalize text-sm font-medium">{title}</span>
         <ChevronDown
-          className={`transition-transform duration-200 ${
-            open ? 'rotate-180' : ''
-          }`}
+          className={`w-4 h-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
         />
       </div>
 
-      {/* Dropdown Panel */}
-      {open && (
-        <div
-          className={`
-            absolute
-            top-full
-            left-0
-            mt-2
-            z-50
-            bg-white
-            shadow-xl
-            rounded-xl
-            p-5
-            text-sm
-            opacity-0
-            scale-95
-            transition-all
-            duration-200
-            ease-out
-            group-hover:opacity-100
-            group-hover:scale-100
-            transform
-          `}
-        >
-          {children}
-        </div>
-      )}
+      <div
+        className={`
+          absolute top-full ${positionClass} z-50 mt-2
+          transform transition-all duration-200 ease-out
+          ${open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}
+          bg-white shadow-xl rounded-xl ${panelWidthClass} p-3
+          text-xs leading-snug
+        `}
+      >
+        {children}
+      </div>
     </div>
   );
 }
