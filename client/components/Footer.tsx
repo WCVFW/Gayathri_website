@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Phone, Mail, MapPin, Clock,
+  
   Linkedin, Twitter, Facebook,
   ChevronDown, ChevronUp,
 } from 'lucide-react';

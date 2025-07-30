@@ -1,5 +1,5 @@
 // src/pages/SoleProprietorshipRegistration.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FaUniversity, FaFileInvoiceDollar, FaRegClock, FaBuilding, } from 'react-icons/fa';
 import { FaIdCard, FaMapMarkedAlt, FaStore } from 'react-icons/fa';
@@ -27,7 +27,7 @@ const SoleProprietorshipRegistration = () => {
     }
   }, [location.search]);
 
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -35,6 +35,7 @@ const SoleProprietorshipRegistration = () => {
       setActiveSection(id);
     }
   };
+
 
   const sections = [
     'overview',

@@ -1,12 +1,20 @@
-import React, { useRef, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react'; // Make sure you have lucide-react installed
+import { useRef, useEffect, ReactNode } from 'react';
+import { ChevronDown } from 'lucide-react';
 
-function Dropdown({ title, open, setOpen, children }) {
-  const timeoutRef = useRef(null);
+interface DropdownProps {
+  title: string;
+  open: boolean;
+  setOpen: (val: boolean) => void;
+  children: ReactNode;
+  positionClass?: string;
+}
+
+function Dropdown({ title, open, setOpen, children }: DropdownProps) {
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current); // Clear any pending close timeout
+      clearTimeout(timeoutRef.current);
     }
     setOpen(true);
   };
@@ -14,11 +22,10 @@ function Dropdown({ title, open, setOpen, children }) {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setOpen(false);
-    }, 150); // 150ms delay is a good balance for most users
+    }, 150);
   };
 
   useEffect(() => {
-    // Clear timeout on component unmount to prevent memory leaks
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
@@ -33,10 +40,13 @@ function Dropdown({ title, open, setOpen, children }) {
       onMouseLeave={handleMouseLeave}
     >
       {/* Dropdown Trigger */}
-      <div className="flex items-center cursor-pointer space-x-1 hover:text-green-600 transition-colors py-2"> {/* Added py-2 for better hit area */}
+      <div className="flex items-center cursor-pointer space-x-1 hover:text-green-600 transition-colors py-2">
         <span className="capitalize">{title}</span>
-        {/* Rotate ChevronDown based on 'open' state */}
-        <ChevronDown className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown
+          className={`transition-transform duration-200 ${
+            open ? 'rotate-180' : ''
+          }`}
+        />
       </div>
 
       {/* Dropdown Panel */}
@@ -46,7 +56,7 @@ function Dropdown({ title, open, setOpen, children }) {
             absolute
             top-full
             left-0
-            mt-2 {/* Consistent margin from the trigger */}
+            mt-2
             z-50
             bg-white
             shadow-xl

@@ -7,7 +7,6 @@ import {
   Calendar,
   CheckCircle,
   GraduationCap,
-  Building,
   Target,
   Eye,
   Star,

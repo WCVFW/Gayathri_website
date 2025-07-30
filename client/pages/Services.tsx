@@ -20,11 +20,11 @@ import {
   Building,
   FileCheck,
   ClipboardList,
-  TrendingDown,
+  // TrendingDown,
   Target,
   BookOpen,
-  CreditCard,
-  Banknote,
+  // CreditCard,
+  // Banknote,
   Scale,
 } from 'lucide-react';
 

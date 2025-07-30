@@ -1,82 +1,75 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+// import { Input } from '@/components/ui/input';
+// import { Textarea } from '@/components/ui/textarea';
+// import { Label } from '@/components/ui/label';
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import {
   Phone,
   Mail,
   MapPin,
-  Clock,
-  Calendar,
-  MessageSquare,
-  CheckCircle,
-  Send,
-  Building,
-  Navigation,
 } from 'lucide-react';
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    service: '',
-    message: '',
-  });
+  // const [formData, setFormData] = useState({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   company: '',
+  //   service: '',
+  //   message: '',
+  // });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const [setIsSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const handleSelectChange = (value: string) => {
-    setFormData({
-      ...formData,
-      service: value,
-    });
-  };
+  // const handleSelectChange = (value: string) => {
+  //   setFormData({
+  //     ...formData,
+  //     service: value,
+  //   });
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Service Inquiry - ${formData.service}`);
-    const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Company: ${formData.company}
-Service Required: ${formData.service}
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     const subject = encodeURIComponent(`Service Inquiry - ${formData.service}`);
+//     const body = encodeURIComponent(`
+// Name: ${formData.name}
+// Email: ${formData.email}
+// Phone: ${formData.phone}
+// Company: ${formData.company}
+// Service Required: ${formData.service}
 
-Message:
-${formData.message}
+// Message:
+// ${formData.message}
 
----
-This inquiry was submitted through the GT Associates website.
-    `);
+// ---
+// This inquiry was submitted through the GT Associates website.
+//     `);
 
-    const mailtoLink = `mailto:info@gtassociates.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        message: '',
-      });
-    }, 3000);
-  };
+//     const mailtoLink = `mailto:info@gtassociates.com?subject=${subject}&body=${body}`;
+//     window.location.href = mailtoLink;
+//     setIsSubmitted(true);
+//     setTimeout(() => {
+//       setIsSubmitted(false);
+//       setFormData({
+//         name: '',
+//         email: '',
+//         phone: '',
+//         company: '',
+//         service: '',
+//         message: '',
+//       });
+//     }, 3000);
+//   };
 
   const contactMethods = [
     { icon: Phone, title: 'Call Us', details: ['+91-9655771091'] },
@@ -84,10 +77,10 @@ This inquiry was submitted through the GT Associates website.
     { icon: MapPin, title: 'Visit Our Office', details: ['32, 1St Main Road, Ayyappa Nagar, Virugambakkam, Chennai-600092.'] },
   ];
 
-  const services = [
-    'Tax Consultation', 'Financial Audit', 'GST Services', 'Business Registration',
-    'Payroll Management', 'Financial Planning', 'Compliance Services', 'Other Services',
-  ];
+  // const services = [
+  //   'Tax Consultation', 'Financial Audit', 'GST Services', 'Business Registration',
+  //   'Payroll Management', 'Financial Planning', 'Compliance Services', 'Other Services',
+  // ];
 
   return (
     <div className="min-h-screen font-sans">
