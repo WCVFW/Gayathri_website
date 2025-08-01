@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import bannerImg1 from '../assets/ser_img1.png';
-import bannerImg2 from '../assets/ser_img2.jpg';
-import bannerImg3 from '../assets/ser_img3.jpg';
+import bannerImg1 from '@/assets/ser_img1.png';
+import bannerImg2 from '@/assets/ser_img2.jpg';
+import bannerImg3 from '@/assets/ser_img3.jpg';
 
 const tabs = ['All', 'New Business', 'Compliance', 'GST & Income Tax'];
 

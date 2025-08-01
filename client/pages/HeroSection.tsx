@@ -1,4 +1,4 @@
-import bannerImg from '../assets/banner_img.png';
+import bannerImg from '@/assets/banner_img.png';
 const stats = [
   { number: "200K+", label: "Business Registrations" },
   { number: "1K", label: "IT Filings per annum" },
