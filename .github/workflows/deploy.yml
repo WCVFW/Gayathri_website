@@ -27,7 +27,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "dist/*"
+          source: "dist/**"
           target: "/home/${{ secrets.EC2_USER }}/Gayathri_website"
 
       - name: 🔧 Move Build to Apache Web Directory
@@ -38,7 +38,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             sudo rm -rf /var/www/html/*
-            sudo cp -r /home/${{ secrets.EC2_USER }}/Gayathri_website/* /var/www/html/
+            sudo cp -r /home/${{ secrets.EC2_USER }}/Gayathri_website/dist/* /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
             sudo systemctl restart apache2
             echo "✅ Deployed successfully to Apache!"
