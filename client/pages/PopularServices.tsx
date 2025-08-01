@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import bannerImg1 from '../assets/ser_img1.png';
+import bannerImg2 from '../assets/ser_img2.jpg';
+import bannerImg3 from '../assets/ser_img3.jpg';
 
 const tabs = ['All', 'New Business', 'Compliance', 'GST & Income Tax'];
 
 const services = [
     {
         title: 'Limited Liability Partnership (LLP) Registration',
-        image: 'assets/home/ser_img1.jpg',
+        image: bannerImg1, // 👈 use imported image
         points: [
             'Ideal for professionals & service businesses',
             'Limited liability protection to partners',
@@ -17,7 +20,7 @@ const services = [
     },
     {
         title: 'FSSAI Food License Registration',
-        image: 'assets/home/ser_img2.jpg',
+        image: bannerImg2,
         points: [
             'Mandatory for food businesses',
             '3 Types: Basic, State, Central',
@@ -29,7 +32,7 @@ const services = [
     },
     {
         title: 'GST Registration',
-        image: 'assets/home/ser_img3.jpg',
+        image: bannerImg3,
         points: [
             'Mandatory if turnover > ₹40 lakh',
             'Get GSTIN in 3-5 working days',
@@ -40,6 +43,7 @@ const services = [
         category: 'GST & Income Tax',
     },
 ];
+
 
 const PopularServices = () => {
     const [activeTab, setActiveTab] = useState('All');

@@ -1,3 +1,4 @@
+import bannerImg from '../assets/banner_img.png';
 const stats = [
   { number: "200K+", label: "Business Registrations" },
   { number: "1K", label: "IT Filings per annum" },
@@ -39,11 +40,7 @@ export default function HeroSection() {
 
           {/* Right image */}
           <div className="mx-auto max-w-md lg:max-w-full">
-            <img
-              src="assets/home/banner_img.png"
-              alt="Business success illustration"
-              className="w-full object-cover"
-            />
+            <img src={bannerImg} alt="Banner" className="w-full object-cover" />;
           </div>
 
         </div>
