@@ -5,7 +5,7 @@ const tabs = ['All', 'New Business', 'Compliance', 'GST & Income Tax'];
 const services = [
     {
         title: 'Limited Liability Partnership (LLP) Registration',
-        image: 'client/assets/home/ser_img1.jpg',
+        image: 'assets/home/ser_img1.jpg',
         points: [
             'Ideal for professionals & service businesses',
             'Limited liability protection to partners',
@@ -17,7 +17,7 @@ const services = [
     },
     {
         title: 'FSSAI Food License Registration',
-        image: 'client/assets/home/ser_img2.jpg',
+        image: 'assets/home/ser_img2.jpg',
         points: [
             'Mandatory for food businesses',
             '3 Types: Basic, State, Central',
@@ -29,7 +29,7 @@ const services = [
     },
     {
         title: 'GST Registration',
-        image: 'client/assets/home/ser_img3.jpg',
+        image: 'assets/home/ser_img3.jpg',
         points: [
             'Mandatory if turnover > ₹40 lakh',
             'Get GSTIN in 3-5 working days',

@@ -40,7 +40,7 @@ export default function HeroSection() {
           {/* Right image */}
           <div className="mx-auto max-w-md lg:max-w-full">
             <img
-              src="client/assets/home/banner_img.png"
+              src="assets/home/banner_img.png"
               alt="Business success illustration"
               className="w-full object-cover"
             />
