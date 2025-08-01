@@ -3,7 +3,7 @@ name: 🚀 Deploy Gayathri_website to EC2
 on:
   push:
     branches:
-      - main  # Change if using another branch
+      - main  # or your branch
 
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
           rm -rf node_modules package-lock.json
           npm install
 
-      - name: 🏗️ Build React App
+      - name: 🏗️ Build Vite React App
         run: npm run build
 
       - name: 📤 Upload Build to EC2
@@ -30,7 +30,7 @@ jobs:
           source: "dist/*"
           target: "/home/${{ secrets.EC2_USER }}/Gayathri_website"
 
-      - name: 🔧 Move Build to Apache Directory
+      - name: 🔧 Move Build to Apache Web Directory
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
@@ -40,4 +40,5 @@ jobs:
             sudo rm -rf /var/www/html/*
             sudo cp -r /home/${{ secrets.EC2_USER }}/Gayathri_website/* /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
-            echo "✅ Deployed to Apache successfully."
+            sudo systemctl restart apache2
+            echo "✅ Deployed successfully to Apache!"
