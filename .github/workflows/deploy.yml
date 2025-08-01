@@ -3,7 +3,7 @@ name: 🚀 Deploy Gayathri_website to EC2
 on:
   push:
     branches:
-      - main  # or your branch
+      - main  # or your default branch
 
 jobs:
   deploy:
@@ -30,15 +30,22 @@ jobs:
           source: "dist/**"
           target: "/home/${{ secrets.EC2_USER }}/Gayathri_website"
 
-      - name: 🔧 Move Build to Apache Web Directory
+      - name: 🔧 Move Build to Apache Web Directory & Renew SSL
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            echo "🚚 Moving build to Apache web root..."
             sudo rm -rf /var/www/html/*
             sudo cp -r /home/${{ secrets.EC2_USER }}/Gayathri_website/dist/* /var/www/html/
             sudo chown -R www-data:www-data /var/www/html
+
+            echo "🔐 Renewing SSL certificate (if due)..."
+            sudo certbot renew --quiet
+
+            echo "🔁 Restarting Apache..."
             sudo systemctl restart apache2
-            echo "✅ Deployed successfully to Apache!"
+
+            echo "✅ Deployed and SSL checked!"
