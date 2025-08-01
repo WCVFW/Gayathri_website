@@ -43,7 +43,7 @@ jobs:
             sudo chown -R www-data:www-data /var/www/html
 
             echo "🔐 Renewing SSL certificate (if due)..."
-            sudo certbot renew --quiet
+            sudo certbot renew --dry-run
 
             echo "🔁 Restarting Apache..."
             sudo systemctl restart apache2
