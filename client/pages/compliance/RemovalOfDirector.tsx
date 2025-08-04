@@ -1,6 +1,19 @@
 // components/RemovalOfDirector.tsx
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+const sections = [
+  'overview',
+  'director-removal',
+  'director',
+  'director-removal-way',
+  'step-by-step',
+  'checklist',
+  'special-case',
+  'form-dir-12',
+  'why-choose',
+];
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => {
   const [open, setOpen] = useState(true);
@@ -19,11 +32,52 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 };
 
 export default function RemovalOfDirector() {
-  return (
-    <div className="max-w-5xl mx-auto px-6 py-10 bg-white rounded-2xl shadow-md">
-      <h1 className="text-4xl font-bold text-center text-navy mb-10">Removal of Director</h1>
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activeSection, setActiveSection] = useState('');
 
-      <Section title="Overview">
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get('section');
+    if (section) {
+      const element = document.getElementById(section);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setActiveSection(section);
+        }, 200);
+      }
+    }
+  }, [location.search]);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      navigate(`?section=${id}`);
+      setActiveSection(id);
+    }
+  };
+  return (
+    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+      <h1 className="text-4xl font-bold text-navy mb-10">Removal of Director</h1>
+      <div className="sticky top-20 z-10 bg-white shadow-sm">
+        <div className="flex flex-wrap max-w-screen-xl ">
+          {sections.map((id) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`px-3 py-1.5 text-xs font-medium uppercase tracking-wide transition-all duration-300 ${activeSection === id
+                ? 'text-green-600 border-b-2 border-green-600'
+                : 'text-gray-800 hover:text-green-600 hover:border-green-600'
+                } border-b-2 border-transparent bg-transparent focus:outline-none`}
+            >
+              {id.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
+            </button>
+          ))}
+        </div>
+      </div>
+      <Section title="overview">
         <div className="text-gray-800 space-y-4">
           <p>
             The removal of a director is a formal process governed by the provisions of the <strong>Companies Act, 2013</strong>, along with the company’s Articles of Association and internal policies. Whether in a private limited or public company, strict compliance with legal and procedural requirements is essential to ensure a lawful and conflict-free transition.
@@ -36,8 +90,8 @@ export default function RemovalOfDirector() {
       </Section>
 
 
-      <Section title="When Can a Director Be Removed?">
-        <div className="text-gray-800 space-y-4">
+      <Section  title="When Can a Director Be Removed?">
+        <div className="text-gray-800 space-y-4" id='director-removal'>
           <p>
             A company may need to remove a director under certain circumstances to ensure corporate integrity, regulatory compliance, or strategic alignment. Common reasons include:
           </p>
@@ -58,7 +112,7 @@ export default function RemovalOfDirector() {
       </Section>
 
       <Section title="Who is a Director Under the Companies Act, 2013?">
-        <div className="text-gray-800 space-y-4">
+        <div className="text-gray-800 space-y-4"id='director'>
           <p>
             A <strong>director</strong> is an individual appointed by a company to manage its affairs, ensure regulatory compliance, and drive strategic decisions. Under the Companies Act, 2013, directors are key to a company’s governance and fiduciary responsibilities.
           </p>
@@ -125,7 +179,7 @@ export default function RemovalOfDirector() {
       </Section>
 
       <Section title="Step-by-Step Process for Removal of a Director">
-        <ol className="list-decimal ml-5 space-y-2 text-gray-700">
+        <ol className="list-decimal ml-5 space-y-2 text-gray-700" id='step-by-step'>
           <li>
             <strong>Issue a Special Notice:</strong> In accordance with Section 115 of the Companies Act, 2013, issue a special notice to initiate the director removal process. Notify the concerned director and all shareholders.
           </li>
@@ -148,7 +202,7 @@ export default function RemovalOfDirector() {
       </Section>
 
       <Section title="Checklist for Director Removal">
-        <ul className="list-disc ml-5 space-y-1 text-gray-700">
+        <ul className="list-disc ml-5 space-y-1 text-gray-700"id='checklist'>
           <li>Issue a <strong>special notice</strong> under Section 115, Companies Act 2013</li>
           <li>Allow the director an opportunity to <strong>submit a written response</strong></li>
           <li>Hold a <strong>General Meeting</strong> and allow voting on the removal</li>
@@ -190,7 +244,7 @@ export default function RemovalOfDirector() {
       </Section>
 
       <Section title="Form DIR-12 – Filing Requirements for Director Removal">
-        <div id="Dir12Removal" className="mb-12">
+        <div id="form-dir-12" className="mb-12">
           <h3 className="text-2xl font-semibold mb-4"></h3>
           <p className="text-gray-700 mb-3">
             Filing <strong>Form DIR-12</strong> is mandatory under the <strong>Companies Act, 2013</strong> to officially remove a director from MCA records.
@@ -207,7 +261,7 @@ export default function RemovalOfDirector() {
 
         <br />
         <strong>Penalties for Late Filing of Form DIR-12</strong>
-        <table className="table-auto border border-gray-300 mt-4 text-sm">
+        <table className="table-auto w-full border border-gray-300 mt-4 text-sm">
           <thead>
             <tr className="bg-gray-100">
               <th className="border px-4 py-2">Delay Period</th>
@@ -215,11 +269,26 @@ export default function RemovalOfDirector() {
             </tr>
           </thead>
           <tbody>
-            <tr><td className="border px-4 py-2">Up to 30 days</td><td className="border px-4 py-2">2x normal fee</td></tr>
-            <tr><td className="border px-4 py-2">30–60 days</td><td className="border px-4 py-2">4x normal fee</td></tr>
-            <tr><td className="border px-4 py-2">60–90 days</td><td className="border px-4 py-2">6x normal fee</td></tr>
-            <tr><td className="border px-4 py-2">90–180 days</td><td className="border px-4 py-2">10x normal fee</td></tr>
-            <tr><td className="border px-4 py-2">180+ days</td><td className="border px-4 py-2">12x normal fee</td></tr>
+            <tr>
+              <td className="border px-4 py-2">Up to 30 days</td>
+              <td className="border px-4 py-2">2x normal fee</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">30–60 days</td>
+              <td className="border px-4 py-2">4x normal fee</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">60–90 days</td>
+              <td className="border px-4 py-2">6x normal fee</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">90–180 days</td>
+              <td className="border px-4 py-2">10x normal fee</td>
+            </tr>
+            <tr>
+              <td className="border px-4 py-2">180+ days</td>
+              <td className="border px-4 py-2">12x normal fee</td>
+            </tr>
           </tbody>
         </table>
         <div id="Dir12Penalty" className="mb-12">
@@ -233,7 +302,7 @@ export default function RemovalOfDirector() {
       </Section>
 
       <Section title="Why Choose Calzone for Director Removal?">
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
+        <ul className="list-disc list-inside text-gray-700 space-y-2"id='why-choose'>
           <li><strong>Complete Legal Compliance</strong> – We ensure 100% adherence to the Companies Act, 2013.</li>
           <li><strong>Hassle-Free Documentation</strong> – We prepare and file Form DIR-12, special notices, and resolutions.</li>
           <li><strong>Expert Guidance & Support</strong> – From Board Meetings to ROC filings, we handle everything.</li>
