@@ -1,45 +1,58 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  
   Linkedin, Twitter, Facebook,
   ChevronDown, ChevronUp,
 } from 'lucide-react';
 import logo from '@/assets/gayathrilogo.png';
 
+const listItemClass = "opacity-90 text-white hover:text-yellow-400 transition cursor-pointer";
+
+const slugify = (text: string) =>
+  '/services/' + text.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, '-');
+
 export function Footer() {
   const [showMoreBusiness, setShowMoreBusiness] = useState(false);
   const [showMoreComplianceServices, setShowMoreComplianceServices] = useState(false);
-  const [showMoreVirtualCFOServices, setShowMoreVirtualCFOServices] = useState(false);
+  // const [showMoreVirtualCFOServices, setShowMoreVirtualCFOServices] = useState(false);
 
   const businessServices = [
     'Sole Proprietorship Registration',
     'Partnership Firm Registration',
-    'LLP Registration',
-    'Private Limited Company',
+    'Limited Liability Partnership (LLP)',
+    'Private Limited Company (Pvt Ltd)',
     'Public Limited Company',
-    'One Person Company',
-  ];
-  const businessServices1 = [
-    'Start Up-Business Registration',
-    'Section 8 Company',
+    'One Person Company (OPC)',
+    'Startup Registration',
+    'Section 8 Company (NGO)',
     'Producer Company',
-    'Indian Subsidiary Registration',
+    'Indian Subsidiary',
     'Branch Office Registration',
-    'Foreign Subsidiary',
-    '80G & 12A Registration',
+    'Foreign Subsidiary Setup',
+  ].map(name => ({ name, href: slugify(name) }));
+
+  const businessServices1 = [
+    '80G & 12A NGO Registration',
     'Society Registration',
     'Trust Registration',
-  ];
+    'DSC',
+    'Udyam Registration',
+    'FSSAI Registration',
+    'IEC Registration',
+    'Drug & Cosmetic License Registration',
+    'PF Registration',
+    'ESI Registration',
+  ].map(name => ({ name, href: slugify(name) }));
 
   const complianceServices = [
-    'Add Director',
+    'Adding Director',
     'Removal of Director',
     'Increase Authorized Share Capital',
-    'Change company address',
+    'Change Company Address',
     'MOM & AOA Amendments',
     'DIN Validation (Dir 3 KYC)',
-  ];
+  ].map(name => ({ name, href: slugify(name) }));
+
   const complianceServices1 = [
     'DIN surrender',
     'Closure of Private Limited Company',
@@ -48,34 +61,36 @@ export function Footer() {
     'Changes in LLP Agreement',
     'LLP Roc Compliance',
     'Closure of LLP',
-  ];
+  ].map(name => ({ name, href: slugify(name) }));
 
-  const virtualCFO = [
-    'Bookkeeping and Accounting',
-    'Payroll Services',
-    'Virtual CFO Services',
-    'CMA Report Preparation',
-    'Business Plan Preparation',
-    'IND-AS',
-  ];
-  const virtualCFO1 = [
-    'Valuation for Merger and Acquisition',
-    'Taxation for Merger and Acquisition',
-  ];
+  // const virtualCFO = [
+  //   'Bookkeeping and Accounting',
+  //   'Payroll Services',
+  //   'Virtual CFO Services',
+  //   'CMA Report Preparation',
+  //   'Business Plan Preparation',
+  //   'IND-AS',
+  // ].map(name => ({ name, href: slugify(name) }));
+
+  // const virtualCFO1 = [
+  //   'Valuation for Merger and Acquisition',
+  //   'Taxation for Merger and Acquisition',
+  // ].map(name => ({ name, href: slugify(name) }));
 
   const taxServices = [
     'GST Registration',
     'GST Return Filing',
-    'Letter of Undertaking (LUT)',
+    'Letter of Undertaking',
     'GST E-Way Bill',
-    'GST Registration surrender/Cancelation',
+    'GST Registration Cancellation/Surrender',
     'GST Registration Modification',
-  ];
+  ].map(name => ({ name, href: slugify(name) }));
+
   const incometax = [
     'Income Tax Return Filing',
     'Form 15CA & Form 15CB Filing',
-    'NRI Income Tax Planning and Filing',
-  ];
+    'NRI Income Tax Planning & Filing',
+  ].map(name => ({ name, href: slugify(name) }));
 
   const usefulLinks = [
     { name: 'Home', href: '/' },
@@ -99,10 +114,10 @@ export function Footer() {
               <img src={logo} alt="Logo" className="w-12 h-12 rounded-lg object-contain" />
               <div>
                 <h3 className="text-base font-bold">Gayathri Thiruvengadam</h3>
-                <p className="text-xs opacity-90 text-white ">& Associates</p>
+                <p className="text-xs opacity-90 text-white">& Associates</p>
               </div>
             </div>
-            <p className="opacity-90 text-white ">
+            <p className="opacity-90 text-white">
               Chartered Accountancy firm with over 25 years of expertise delivering business, compliance, and tax solutions.
             </p>
             <div className="flex gap-4">
@@ -117,34 +132,48 @@ export function Footer() {
             <div>
               <h3 className="font-semibold text-base mb-2">New Business</h3>
               <ul className="space-y-1">
-                {businessServices.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
-                ))}
-                {showMoreBusiness && businessServices1.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
+                {[...businessServices, ...(showMoreBusiness ? businessServices1 : [])].map(item => (
+                  <li key={item.name}>
+                    <Link
+                      to={`services/newbusiness/${item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')}`}
+                      className={listItemClass}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
                 ))}
               </ul>
-              <button onClick={() => setShowMoreBusiness(!showMoreBusiness)} className="flex items-center gap-1 text-gold mt-1">
+              <button
+                onClick={() => setShowMoreBusiness(!showMoreBusiness)}
+                className="flex items-center gap-1 text-yellow-400 mt-1"
+              >
                 {showMoreBusiness ? 'Show Less' : 'Show More'}
                 {showMoreBusiness ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
               </button>
             </div>
 
-            <div>
+            {/* <div>
               <h3 className="font-semibold text-base mb-2 mt-6">Virtual CFO</h3>
               <ul className="space-y-1">
-                {virtualCFO.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
-                ))}
-                {showMoreVirtualCFOServices && virtualCFO1.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
+                {[...virtualCFO, ...(showMoreVirtualCFOServices ? virtualCFO1 : [])].map(item => (
+                  <li key={item.name}>
+                    <Link
+                      to={`services/newbusiness/${item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')}`}
+                      className={listItemClass}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
                 ))}
               </ul>
-              <button onClick={() => setShowMoreVirtualCFOServices(!showMoreVirtualCFOServices)} className="flex items-center gap-1 text-gold mt-1">
+              <button
+                onClick={() => setShowMoreVirtualCFOServices(!showMoreVirtualCFOServices)}
+                className="flex items-center gap-1 text-yellow-400 mt-1"
+              >
                 {showMoreVirtualCFOServices ? 'Show Less' : 'Show More'}
                 {showMoreVirtualCFOServices ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
               </button>
-            </div>
+            </div> */}
           </div>
 
           {/* Compliance + Useful Links */}
@@ -152,14 +181,21 @@ export function Footer() {
             <div>
               <h3 className="font-semibold text-base mb-2">Compliance</h3>
               <ul className="space-y-1">
-                {complianceServices.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
-                ))}
-                {showMoreComplianceServices && complianceServices1.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
+                {[...complianceServices, ...(showMoreComplianceServices ? complianceServices1 : [])].map(item => (
+                  <li key={item.name}>
+                    <Link
+                      to={`services/compliance/${item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')}`}
+                      className={listItemClass}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
                 ))}
               </ul>
-              <button onClick={() => setShowMoreComplianceServices(!showMoreComplianceServices)} className="flex items-center gap-1 text-gold mt-1">
+              <button
+                onClick={() => setShowMoreComplianceServices(!showMoreComplianceServices)}
+                className="flex items-center gap-1 text-yellow-400 mt-1"
+              >
                 {showMoreComplianceServices ? 'Show Less' : 'Show More'}
                 {showMoreComplianceServices ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
               </button>
@@ -170,7 +206,7 @@ export function Footer() {
               <ul className="space-y-1">
                 {usefulLinks.map(link => (
                   <li key={link.name}>
-                    <Link to={link.href} className="opacity-90 hover:text-gold text-white ">{link.name}</Link>
+                    <Link to={link.href} className={listItemClass}>{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -183,7 +219,14 @@ export function Footer() {
               <h3 className="font-semibold text-base mb-2">GST Services</h3>
               <ul className="space-y-1">
                 {taxServices.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
+                  <li key={item.name}>
+                    <Link
+                      to={`services/gst/${item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')}`}
+                      className={listItemClass}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -192,12 +235,18 @@ export function Footer() {
               <h3 className="font-semibold text-base mb-2 mt-6">Income Tax Filing</h3>
               <ul className="space-y-1">
                 {incometax.map(item => (
-                  <li key={item} className="opacity-90 hover:text-gold text-white ">{item}</li>
+                  <li key={item.name}>
+                    <Link
+                      to={`services/gst/${item.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '')}`}
+                      className={listItemClass}
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </div>
           </div>
-
         </div>
 
         {/* Footer Bottom */}
