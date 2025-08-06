@@ -31,7 +31,11 @@ import ClosureOfLLP from './pages/compliance/ClosureOfLLP';
 import SoleProprietorshipRegistration from "./pages/newbusiness/SoleProprietorshipRegistration";
 import PartnershipFirmRegistration from "./pages/newbusiness/PartnershipFirmRegistration";
 import LLPRegistration from "./pages/newbusiness/LLPRegistration";
-import PrivateLimitedCompanyRegistration from "./pages/newbusiness/PartnershipFirmRegistration";
+import PrivateLimitedCompanyRegistration from "./pages/newbusiness/PrivateLimitedCompanyRegistration";
+import Publiclimitedcompany from "./pages/newbusiness/Publiclimitedcompany";
+import Onepersoncompany from "./pages/newbusiness/Onepersoncompany";
+import StartupRegistration from "./pages/newbusiness/Startupbusinessregistration";
+import Section8CompanyPage from "./pages/newbusiness/Section8CompanyPage";
 // GST
 import Form15CA15CBGuide from "./pages/GSTincomeTax/form15caand15cb";
 import GSTModification from "./pages/GSTincomeTax/GSTegistrationmodification";
@@ -43,6 +47,7 @@ import NRIincometaxplanningandfiling from "./pages/GSTincomeTax/NRIincometaxplan
 import ScrollToTop from './components/ScrollToTop';
 import ITRGuide from "./pages/GSTincomeTax/incometaxreturnfilleing";
 import LutFiling from "./pages/GSTincomeTax/letterofundertaking";
+
 
 const queryClient = new QueryClient();
 
@@ -99,6 +104,10 @@ const App = () => (
               <Route path="/services/newbusiness/partnership-firm-registration" element={<PartnershipFirmRegistration />} />
               <Route path="/services/newbusiness/limited-liability-partnership-llp" element={<LLPRegistration />} />
               <Route path="/services/newbusiness/private-limited-company-pvt-ltd" element={<PrivateLimitedCompanyRegistration />} />
+              <Route path="/services/newbusiness/public-limited-company" element={<Publiclimitedcompany />} />
+              <Route path="/services/newbusiness/one-person-company-opc" element={<Onepersoncompany />} />
+              <Route path="/services/newbusiness/startup-registration" element={<StartupRegistration />} />
+              <Route path="/services/newbusiness/section-8-company-ngo" element={<Section8CompanyPage />} />
               {/* // GST */}
               <Route path="/services/income-tax/form-15ca-form-15cb-filing" element={< Form15CA15CBGuide/>} />
               <Route path="/services/gst/gst-registration-modification" element={< GSTModification/>} />

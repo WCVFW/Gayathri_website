@@ -1,62 +1,132 @@
-'use client';
+// src/pages/GstRegistration.tsx
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-export default function GstRegistration() {
+const GstRegistration = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [activeSection, setActiveSection] = useState<string>('');
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get('section');
+    if (section) {
+      const element = document.getElementById(section);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setActiveSection(section);
+        }, 200);
+      }
+    }
+  }, [location.search]);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      navigate(`?section=${id}`);
+      setActiveSection(id);
+    }
+  };
+
+  const sections: { id: string; label: string }[] = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'benefits', label: 'Benefits' },
+    { id: 'who-needs-it', label: 'Who' },
+    { id: 'documents', label: 'Documents' },
+    { id: 'process', label: 'Process' },
+    { id: 'types', label: 'Types' },
+    { id: 'returns', label: 'GST Return Filing' },
+  ];
+
   return (
-    <section className="max-w-5xl mx-auto px-4 py-16 font-inter text-gray-800">
-      <h1 className="text-4xl font-bold text-pink-700 mb-8 text-center">
-        GST Registration
-      </h1>
+    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins px-4">
+      <h1 className="text-3xl font-semibold mb-6">GST Registration</h1>
 
-      {/* Overview */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">What is GST Registration?</h2>
-        <p className="text-lg leading-relaxed">
-          GST (Goods and Services Tax) registration is a mandatory process for businesses in India that meet the turnover criteria set by the government. GST simplifies taxation by integrating multiple indirect taxes into a single framework, ensuring compliance and smooth business operations.
+      {/* Sticky Navigation */}
+      <div className="sticky top-20 z-10 bg-white shadow-sm border-b mb-10">
+        <div className="flex flex-wrap">
+          {sections.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`px-4 py-2 text-sm font-medium uppercase transition-all duration-200 border-b-2 ${
+                activeSection === id
+                  ? 'text-green-600 border-green-600'
+                  : 'text-gray-600 border-transparent hover:text-green-600 hover:border-green-600'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Section: Overview */}
+      <section id="overview" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">What is GST Registration?</h2>
+        <p>
+          GST (Goods and Services Tax) registration is a mandatory process for businesses in India
+          that meet the turnover criteria set by the government. GST simplifies taxation by
+          integrating multiple indirect taxes into a single framework, ensuring compliance and
+          smooth business operations.
         </p>
       </section>
 
-      {/* Benefits */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">Benefits of GST Registration</h2>
-        <ul className="list-disc pl-5 space-y-2 text-lg leading-relaxed">
-          <li><strong>Legally Recognized Business:</strong> Enables seamless operations across India.</li>
-          <li><strong>Input Tax Credit (ITC):</strong> Claim ITC on purchases to reduce tax burden.</li>
-          <li><strong>Ease of Compliance:</strong> Simplified online tax filing process.</li>
-          <li><strong>Facilitates E-Commerce:</strong> Mandatory for online sellers.</li>
-          <li><strong>Competitive Edge:</strong> Enhances credibility and trustworthiness.</li>
+      {/* Section: Benefits */}
+      <section id="benefits" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Benefits of GST Registration</h2>
+        <ul className="list-disc list-inside space-y-2">
+          <li>
+            <strong>Legally Recognized Business:</strong> Obtaining GST registration gives legal recognition to your business and enables seamless operations across India.
+          </li>
+          <li>
+            <strong>Input Tax Credit (ITC):</strong> Businesses can claim ITC on purchases, reducing their overall tax burden.
+          </li>
+          <li>
+            <strong>Ease of Compliance:</strong> GST simplifies the tax filing process through an online portal, reducing paperwork.
+          </li>
+          <li>
+            <strong>Facilitates E-Commerce:</strong>Mandatory for businesses selling online through platforms like Amazon, Flipkart, and their websites.
+          </li>
+          <li>
+            <strong>Competitive Edge:</strong> Enhances business credibility and trustworthiness among customers and suppliers.
+          </li>
         </ul>
       </section>
 
-      {/* Who Needs GST Registration */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">Who Needs GST Registration?</h2>
-        <ul className="list-disc pl-5 space-y-2 text-lg leading-relaxed">
-          <li>Businesses with annual turnover over ₹40 lakh (₹10 lakh for special category states).</li>
-          <li>E-commerce sellers or aggregators.</li>
-          <li>Interstate suppliers of goods or services.</li>
-          <li>Casual taxable persons (e.g., seasonal stalls or events).</li>
-          <li>Input Service Distributors (ISD) and agents.</li>
-          <li>Reverse charge mechanism (RCM) entities.</li>
-          <li>Non-resident taxable persons (NRTPs).</li>
-        </ul>
+      {/* Section: Who Needs GST Registration */}
+      <section id="who-needs-it" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Who Needs GST Registration?</h2>
+        <p className="mb-2">GST registration is compulsory for:</p>
+        <ol className="list-decimal list-inside space-y-2">
+          <li>Businesses with annual turnover exceeding ₹40 lakh (₹10 lakh for special states).</li>
+          <li><strong>E-commerce sellers</strong> or aggregators.</li>
+          <li><strong>Interstate businesses</strong> selling outside their state.</li>
+          <li><strong>Casual taxable persons</strong> (e.g., businesses operating seasonal or temporary stalls/events).</li>
+          <li><strong>Input Service Distributors (ISD)</strong> and agents.</li>
+          <li><strong>Reverse charge mechanism (RCM) entities.</strong></li>
+          <li><strong>Non-resident taxable persons (NRTPs)</strong>operating in India.</li>
+        </ol>
       </section>
 
-      {/* Documents */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">Documents Required for GST Registration</h2>
-        <div className="space-y-6 text-lg leading-relaxed">
+      {/* Section: Documents Required */}
+      <section id="documents" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Documents Required for GST Registration</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-bold text-pink-500">Proprietorship Firm</h3>
-            <ul className="list-disc pl-5">
+            <h3 className="font-semibold text-green-600 mb-2">Proprietorship Firm</h3>
+            <ul className="list-disc list-inside space-y-1">
               <li>PAN Card of the owner</li>
               <li>Aadhaar Card</li>
-              <li>Business address proof (electricity bill, rent agreement, etc.)</li>
-              <li>Bank account details (cancelled cheque or bank statement)</li>
+              <li>Business address proof (Electricity bill, rent agreement, etc.)</li>
+              <li>Bank account details (Cancelled cheque or bank statement)</li>
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-pink-500">Partnership Firm</h3>
-            <ul className="list-disc pl-5">
+            <h3 className="font-semibold text-green-600 mb-2">Partnership Firm</h3>
+            <ul className="list-disc list-inside space-y-1">
               <li>PAN Card of firm and partners</li>
               <li>Aadhaar & Address proof of partners</li>
               <li>Partnership deed</li>
@@ -65,8 +135,8 @@ export default function GstRegistration() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-pink-500">Private Limited / LLP</h3>
-            <ul className="list-disc pl-5">
+            <h3 className="font-semibold text-green-600 mb-2">Private Limited / LLP</h3>
+            <ul className="list-disc list-inside space-y-1">
               <li>PAN of the company</li>
               <li>Certificate of Incorporation</li>
               <li>MOA & AOA / LLP Agreement</li>
@@ -78,41 +148,54 @@ export default function GstRegistration() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">GST Registration Process</h2>
-        <ol className="list-decimal pl-5 space-y-2 text-lg leading-relaxed">
-          <li>Visit the GST Official Portal.</li>
-          <li>Fill Part A of Form GST REG-01 (PAN, mobile, email).</li>
-          <li>Verify with OTP received on registered contacts.</li>
-          <li>Submit business details including turnover.</li>
-          <li>Upload identity, address, and bank documents.</li>
-          <li>Receive ARN (Application Reference Number).</li>
-          <li>Download your GST certificate upon approval.</li>
+      {/* Section: GST Registration Process */}
+      <section id="process" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">GST Registration Process</h2>
+        <ol className="list-decimal list-inside space-y-2">
+          <li>
+            <strong>Visit the GST Portal:</strong>{' '}
+            <a
+              href="https://www.gst.gov.in/"
+              className="text-blue-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              gst.gov.in
+            </a>
+          </li>
+          <li><strong>Fill Part A of Form GST REG-01:</strong> Provide PAN, mobile number, and email ID.</li>
+          <li><strong>OTP Verification:</strong> Submit OTP received.</li>
+          <li><strong>Business Details:</strong> Type, name, turnover, etc.</li>
+          <li><strong>Upload Documents:</strong> ID, address & bank proof.</li>
+          <li><strong>Receive ARN:</strong> Track status online.</li>
+          <li><strong>Get GST Certificate:</strong> After approval, download it.</li>
         </ol>
       </section>
 
-      {/* Types of Registration */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">Types of GST Registration</h2>
-        <ul className="list-disc pl-5 space-y-2 text-lg leading-relaxed">
-          <li><strong>Regular Registration:</strong> For businesses above turnover threshold.</li>
-          <li><strong>Composition Scheme:</strong> For small businesses under ₹1.5 crore.</li>
+      {/* Section: Types of GST Registration */}
+      <section id="types" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Types of GST Registration</h2>
+        <ul className="list-disc list-inside space-y-2">
+          <li><strong>Regular GST Registration:</strong> For businesses above threshold.</li>
+          <li><strong>Composition Scheme:</strong> For small businesses (turnover under 1.5 crores) with reduced tax rates.</li>
           <li><strong>Casual Registration:</strong> For seasonal or temporary businesses.</li>
-          <li><strong>Non-Resident Registration:</strong> For foreign entities operating in India.</li>
+          <li><strong>Non-Resident Registration:</strong> For foreign businesses in India.</li>
         </ul>
       </section>
 
-      {/* GST Return Filing */}
-      <section>
-        <h2 className="text-2xl font-semibold text-pink-600 mb-4">GST Return Filing</h2>
-        <ul className="list-disc pl-5 space-y-2 text-lg leading-relaxed">
-          <li><strong>GSTR-1:</strong> Monthly/quarterly return for outward supplies.</li>
+      {/* Section: GST Return Filing */}
+      <section id="returns" className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4">GST Return Filing</h2>
+        <p className="mb-2">Once registered, businesses must file the following returns:</p>
+        <ul className="list-disc list-inside space-y-2">
+          <li><strong>GSTR-1:</strong> Monthly/quarterly for outward supplies.</li>
           <li><strong>GSTR-3B:</strong> Monthly summary return.</li>
-          <li><strong>GSTR-9:</strong> Annual return for registered businesses.</li>
-          <li><strong>GSTR-4:</strong> For taxpayers under the composition scheme.</li>
+          <li><strong>GSTR-9:</strong> Annual return.</li>
+          <li><strong>GSTR-4:</strong> For composition scheme taxpayers.</li>
         </ul>
       </section>
-    </section>
+    </div>
   );
-}
+};
+
+export default GstRegistration;
