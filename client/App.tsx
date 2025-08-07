@@ -47,6 +47,20 @@ import NRIincometaxplanningandfiling from "./pages/GSTincomeTax/NRIincometaxplan
 import ScrollToTop from './components/ScrollToTop';
 import ITRGuide from "./pages/GSTincomeTax/incometaxreturnfilleing";
 import LutFiling from "./pages/GSTincomeTax/letterofundertaking";
+import ProducerCompanyRegistration from "./pages/newbusiness/ProducerCompanyRegistration";
+import IndianSubsidiaryRegistration from "./pages/newbusiness/IndianSubsidiaryRegistration";
+import BranchOfficeRegistration from "./pages/newbusiness/BranchOfficeRegistration";
+import ForeignSubsidiary from "./pages/newbusiness/ForeignSubsidiary";
+import EightyGAndTwelveA from "./pages/newbusiness/EightyGAndTwelveA";
+import SocietyRegistration from "./pages/newbusiness/SocietyRegistration";
+import TrustRegistration from "./pages/newbusiness/TrustRegistration";
+import DscRegistration from "./pages/newbusiness/DigitalSignatureCertificates";
+import UdyamRegistration from "./pages/newbusiness/UdyamRegistration";
+import FssaiRegistration from "./pages/newbusiness/FSSAIRegistration";
+import IecRegistration from "./pages/newbusiness/IecRegistration";
+import PfRegistration from "./pages/newbusiness/PfRegistration";
+import EsiRegistration from "./pages/newbusiness/EsiRegistration";
+import DrugCosmeticLicense from "./pages/newbusiness/DrugCosmeticLicense";
 
 
 const queryClient = new QueryClient();
@@ -108,15 +122,29 @@ const App = () => (
               <Route path="/services/newbusiness/one-person-company-opc" element={<Onepersoncompany />} />
               <Route path="/services/newbusiness/startup-registration" element={<StartupRegistration />} />
               <Route path="/services/newbusiness/section-8-company-ngo" element={<Section8CompanyPage />} />
+              <Route path="/services/newbusiness/producer-company" element={<ProducerCompanyRegistration />} />
+              <Route path="/services/newbusiness/indian-subsidiary" element={<IndianSubsidiaryRegistration />} />
+              <Route path="/services/newbusiness/branch-office-registration" element={<BranchOfficeRegistration />} />
+              <Route path="/services/newbusiness/foreign-subsidiary-setup" element={<ForeignSubsidiary />} />
+              <Route path="/services/newbusiness/80g-12a-ngo-registration" element={<EightyGAndTwelveA />} />
+              <Route path="/services/newbusiness/society-registration" element={<SocietyRegistration />} />
+              <Route path="/services/newbusiness/trust-registration" element={<TrustRegistration />} />
+              <Route path="/services/newbusiness/Dsc" element={<DscRegistration />} />
+              <Route path="/services/newbusiness/Udyam-Registration" element={<UdyamRegistration />} />
+              <Route path="/services/newbusiness/Fssai-Registration" element={<FssaiRegistration />} />
+              <Route path="/services/newbusiness/Iec-Registration" element={<IecRegistration />} />
+              <Route path="/services/newbusiness/Pf-Registration" element={<PfRegistration />} />
+              <Route path="/services/newbusiness/Esi-Registration" element={<EsiRegistration />} />
+              <Route path="/services/newbusiness/Drug-Cosmetic-License-Registration" element={<DrugCosmeticLicense />} />
               {/* // GST */}
-              <Route path="/services/income-tax/form-15ca-form-15cb-filing" element={< Form15CA15CBGuide/>} />
-              <Route path="/services/gst/gst-registration-modification" element={< GSTModification/>} />
-              <Route path="/services/gst/gst-registration-cancellation-surrender" element={< GSTCancellation/>} />
-              <Route path="/services/gst/gst-registration" element={< GstRegistration/>} />
-              <Route path="/services/gst/gst-return-filing" element={< GstReturnFiling/>} />
+              <Route path="/services/income-tax/form-15ca-form-15cb-filing" element={< Form15CA15CBGuide />} />
+              <Route path="/services/gst/gst-registration-modification" element={< GSTModification />} />
+              <Route path="/services/gst/gst-registration-cancellation-surrender" element={< GSTCancellation />} />
+              <Route path="/services/gst/gst-registration" element={< GstRegistration />} />
+              <Route path="/services/gst/gst-return-filing" element={< GstReturnFiling />} />
               <Route path="/services/gst/gst-e-way-bill" element={<GSTEwaybill />} />
               <Route path="/services/income-tax/nri-income-tax-planning-filing" element={<NRIincometaxplanningandfiling />} />
-              <Route path="/services/income-tax/income-tax-return-filing" element={<ITRGuide/>} />
+              <Route path="/services/income-tax/income-tax-return-filing" element={<ITRGuide />} />
               <Route path="/services/gst/letter-of-undertaking" element={<LutFiling />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

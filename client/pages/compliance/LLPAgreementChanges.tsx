@@ -82,8 +82,8 @@ const LLPAgreementChanges: React.FC = () => {
     }
   };
   return (
-   <section className="py-10 max-w-6xl mx-auto text-navy font-poppins">
-      <div className="max-w-5xl mx-auto bg-white  lg:p-10">
+   <section className="px-6 md:px-16 py-8 text-navy font-poppins">
+      <div className="bg-white  lg:p-10">
         <div>
           <h1 className="text-3xl lg:text-4xl font-bold mb-6">
             Changes in LLP Agreement
@@ -108,7 +108,7 @@ const LLPAgreementChanges: React.FC = () => {
 
 
         <section className="bg-white">
-          <div className="max-w-4xl mx-auto">
+          <div className="">
             <h2 className="text-xl font-bold text-navy mb-6 flex items-center gap-3">
               What is an LLP Agreement & Why Modify It?
             </h2>
@@ -163,7 +163,7 @@ const LLPAgreementChanges: React.FC = () => {
           </div>
         </section>
         <section className="bg-white">
-          <div className="max-w-6xl mx-auto">
+          <div className="">
             <h2 className="text-3xl font-bold text-navy mb-8">
               Common Changes in an LLP Agreement
             </h2>
@@ -325,7 +325,7 @@ const LLPAgreementChanges: React.FC = () => {
           </div>
         </section>
         <section className="bg-white">
-          <div className="max-w-5xl mx-auto">
+          <div className="">
             {/* Compliance Section */}
             <h2 className="text-3xl font-bold text-navy mb-6">
               LLP Agreement Changes – Government Compliance & Deadlines
@@ -370,7 +370,7 @@ const LLPAgreementChanges: React.FC = () => {
           </div>
         </section>
         <section className="text-white">
-          <div className="max-w-4xl mx-auto">
+          <div className="">
             <h2 className="text-3xl font-bold mb-8 text-navy">Frequently Asked Questions</h2>
             {faqs.map((faq, index) => (
               <div key={index} className="border-b border-gray-700 py-4 bg-navy px-4 rounded-md mb-4">

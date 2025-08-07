@@ -36,7 +36,7 @@ const LLPCompliance = () => {
     setOpenIndex(index === openIndex ? null : index);
   };
   return (
-   <section className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+   <section className="px-6 md:px-16 py-8 font-poppins">
       <section id="llpCompliance" className="py-6">
         <h2 className="text-xl sm:text-2xl font-semibold text-navy mb-3">
           whatis LLP Compliance ?

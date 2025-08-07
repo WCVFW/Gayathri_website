@@ -52,7 +52,7 @@ const ClosureOfLLP = () => {
     }
   };
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+    <div className="px-6 md:px-16 py-8 font-poppins">
       <div>
         <h1 className="text-2xl sm:text-3xl font-bold text-navy mb-4">
           Closure of LLP

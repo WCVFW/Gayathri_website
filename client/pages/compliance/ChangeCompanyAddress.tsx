@@ -66,8 +66,8 @@ const ChangeCompanyAddress: React.FC = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
-      <div className="max-w-5xl mx-auto space-y-6">
+    <div className="px-6 md:px-16 py-8 font-poppins">
+      <div className="space-y-6">
         <h1 className="text-4xl font-bold text-navy">Change Company Address</h1>
         <div className="sticky top-20 z-10 bg-white shadow-sm">
 

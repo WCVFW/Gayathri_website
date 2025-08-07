@@ -40,7 +40,7 @@ const Publiclimitedcompany: React.FC = () => {
         }
     };
     return (
-        <div className="max-w-5xl mx-auto py-8 text-gray-800">
+        <div className="px-6 md:px-16 py-8">
             <h1 className="text-4xl font-bold mb-2 text-navy">
                 One Person Company
                 Registration
@@ -105,7 +105,7 @@ const Publiclimitedcompany: React.FC = () => {
                     At Calzone, we help you seamlessly incorporate an OPC, so you can focus on growing your business.
                 </p>
                 <section className="bg-white">
-                    <div className="max-w-5xl mx-auto">
+                    <div className="">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                             Why Choose an OPC with Calzone?
                         </h2>
@@ -250,7 +250,7 @@ const Publiclimitedcompany: React.FC = () => {
                     </p>
                 </section>
                 <section className="bg-white">
-                    <div className="max-w-5xl mx-auto">
+                    <div className="">
                         <h2 className="text-3xl font-bold text-gray-800 mb-6">
                             Compliance Requirements for OPCs
                         </h2>

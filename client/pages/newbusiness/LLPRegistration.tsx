@@ -2,7 +2,7 @@ import React from "react";
 
 const LlpRegistration: React.FC = () => {
   return (
-    <div className="px-6 py-10 max-w-5xl mx-auto text-gray-800">
+    <div className="px-6 md:px-16 py-8">
       {/* Intro */}
       <section className="mb-8">
         <h1 className="text-3xl font-bold mb-4">LLP Registration</h1>

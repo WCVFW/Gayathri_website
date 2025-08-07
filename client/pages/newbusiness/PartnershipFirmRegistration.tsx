@@ -41,9 +41,9 @@ const PartnershipFirmRegistration: React.FC = () => {
   }, []);
 
   return (
-    <main className="py-10 px-4">
-      <div className="max-w-5xl mx-auto bg-white shadow-md rounded-xl p-8 text-gray-900 font-[Poppins]">
-        <h1 className="text-3xl font-bold mb-2 text-left text-[#306590]">
+    <main className="px-6 md:px-16 py-8">
+      <div className="bg-white shadow-md rounded-xl p-8 text-gray-900 font-[Poppins]">
+        <h1 className="text-3xl font-bold mb-2 text-left">
           Partnership Firm Registration with Calzone
         </h1>
         <p className="text-left text-sm text-gray-600 mb-6">
@@ -51,7 +51,7 @@ const PartnershipFirmRegistration: React.FC = () => {
         </p>
         {/* Sections */}
         <section id="overview" className="mb-8 mt-6">
-          <h2 className="text-2xl font-semibold mb-3 text-left text-[#306590]">Introduction</h2>
+          <h2 className="text-2xl font-semibold mb-3 text-left">Introduction</h2>
           <p className="mb-2 text-gray-700 text-left leading-relaxed">
             Starting a business with like-minded partners can be an excellent way to build a strong, collaborative,
             and scalable enterprise. A Partnership Firm allows two or more individuals to come together, share

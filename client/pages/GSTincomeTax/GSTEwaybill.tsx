@@ -41,7 +41,7 @@ const EwayBill = () => {
   ];
 
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+    <div className="px-6 md:px-16 py-8 font-poppins">
       <h1 className="text-2xl md:text-3xl font-semibold mb-4">GST E-Way Bill</h1>
       <p className="text-gray-700 mb-8">
         GST E-Way Bill: Meaning, Rules, Compliance, and More

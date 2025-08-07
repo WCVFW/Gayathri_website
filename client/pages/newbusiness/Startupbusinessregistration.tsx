@@ -13,7 +13,7 @@ const sections = [
 
 const StartupRegistration = () => {
     return (
-        <div className="max-w-6xl mx-auto p-6 text-gray-800">
+        <div className="px-6 md:px-16 py-8">
             <h1 className="text-3xl font-bold mb-4">Startup Business Registration</h1>
             <p className="mb-6">Startup Business Registration with Calzone - Your Journey to Entrepreneurship Begins Here</p>
 

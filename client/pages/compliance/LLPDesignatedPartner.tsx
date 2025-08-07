@@ -76,8 +76,8 @@ const LLPDesignatedPartner: React.FC = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-  <section className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
-      <div className="sticky top-20 z-10 bg-white p-6 max-w-5xl mx-auto bg-white ">
+    <section className="px-6 md:px-16 py-8font-poppins">
+      <div className="sticky top-20 z-10 bg-white p-6 bg-white ">
         <h3 className="text-3xl font-bold  mb-6 text-navy">
           LLP Adding a Designated Partner
         </h3>
@@ -96,7 +96,7 @@ const LLPDesignatedPartner: React.FC = () => {
           ))}
         </div>
       </div>
-      <section className="space-y-4 p-6 max-w-5xl mx-auto bg-white">
+      <section className="space-y-4 p-6 bg-white">
         <h2 className="text-2xl font-semibold text-navy">Designated Partner in LLP - A Complete Guide</h2>
         <p>
           A Limited Liability Partnership (LLP) requires at least two designated partners who are responsible for
@@ -112,7 +112,7 @@ const LLPDesignatedPartner: React.FC = () => {
           designated partners in an LLP, ensuring 100% legal compliance with the LLP Act, 2008.
         </p>
       </section>
-      <section className="space-y-6 p-6 max-w-5xl mx-auto bg-white ">
+      <section className="space-y-6 p-6 bg-white ">
         <h2 className="text-2xl font-semibold text-navy">Role & Responsibilities of a Designated Partner in an LLP</h2>
 
         <div className="space-y-4">
@@ -164,7 +164,7 @@ const LLPDesignatedPartner: React.FC = () => {
         </p>
       </section>
 
-      <section className="space-y-6 p-6 max-w-5xl mx-auto bg-white">
+      <section className="space-y-6 p-6 bg-white">
         <h2 className="text-2xl font-semibold text-navy">Eligibility Criteria for Becoming a Designated Partner in an LLP</h2>
 
         <ul className="list-disc list-inside space-y-2 text-gray-800">
@@ -186,7 +186,7 @@ const LLPDesignatedPartner: React.FC = () => {
           Need to add a Designated Partner? <span className="font-semibold">Calzone</span> handles the entire process efficiently and ensures compliance with MCA regulations.
         </p>
       </section>
-      <section className="p-6 max-w-5xl mx-auto bg-white">
+      <section className="p-6 bg-white">
         <h2 className="text-2xl font-semibold text-gray-900 mb-4 text-navy">
           Who Cannot Be Appointed as a Designated Partner in an LLP?
         </h2>
@@ -210,7 +210,7 @@ const LLPDesignatedPartner: React.FC = () => {
           <strong>Calzone</strong> ensures that only legally qualified individuals are added as Designated Partners in your LLP.
         </p>
       </section>
-      <section className="p-6 max-w-5xl mx-auto bg-white">
+      <section className="p-6 bg-white">
         <h2 className="text-2xl font-semibold text-gray-900 mb-4 text-navy">
           Minimum & Maximum Number of Designated Partners in an LLP
         </h2>
@@ -234,7 +234,7 @@ const LLPDesignatedPartner: React.FC = () => {
           <strong>Calzone</strong> ensures compliance with LLP partner regulations, preventing legal complications.
         </p>
       </section>
-      <section className="p-6 max-w-5xl mx-auto bg-white">
+      <section className="p-6 bg-white">
         <h2 className="text-2xl font-semibold text-gray-900 mb-4 text-navy">
           Penalty for Not Appointing a Designated Partner
         </h2>
@@ -258,7 +258,7 @@ const LLPDesignatedPartner: React.FC = () => {
           <strong>Avoid penalties!</strong> Calzone ensures your LLP maintains the required number of Designated Partners at all times.
         </p>
       </section>
-      <section className="p-6 max-w-5xl mx-auto bg-white">
+      <section className="p-6 bg-white">
         <h2 className="text-2xl font-semibold  mb-4 text-navy">
           Process for Adding a Designated Partner in an LLP
         </h2>
@@ -300,7 +300,7 @@ const LLPDesignatedPartner: React.FC = () => {
           <strong>Calzone ensures a smooth process</strong> for adding a Designated Partner, handling all legal filings and approvals.
         </p>
       </section>
-      <section className="p-6 max-w-5xl mx-auto bg-white">
+      <section className="p-6 bg-white">
         <h2 className="text-2xl font-bold text-navy">
           Why Choose Calzone for Designated Partner Appointments?
         </h2>
@@ -326,7 +326,7 @@ const LLPDesignatedPartner: React.FC = () => {
           </p>
         </div>
       </section>
-      <div id="FAQs" className="max-w-5xl mx-auto my-10 px-4">
+      <div id="FAQs" className=" my-10 px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-navy">Frequently Asked Questions (FAQs)</h2>
         <div className="space-y-4 ">
           {faqData.map((faq, index) => (
@@ -337,7 +337,7 @@ const LLPDesignatedPartner: React.FC = () => {
               >
                 <span>{index + 1}. {faq.question}</span>
                 <span className="text-gray-600">
-                  {openIndex === index ? <FaMinus className='text-white'/> : <FaPlus className='text-white'  />}
+                  {openIndex === index ? <FaMinus className='text-white' /> : <FaPlus className='text-white' />}
                 </span>
               </button>
               {openIndex === index && (

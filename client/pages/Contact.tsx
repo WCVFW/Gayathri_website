@@ -72,8 +72,8 @@ export function Contact() {
 //   };
 
   const contactMethods = [
-    { icon: Phone, title: 'Call Us', details: ['+91-9655771091'] },
-    { icon: Mail, title: 'Email Us', details: ['deepak@hado.co.in'] },
+    { icon: Phone, title: 'Call Us', details: ['+91-8778626955'] },
+    { icon: Mail, title: 'Email Us', details: ['info@gayathrica.com'] },
     { icon: MapPin, title: 'Visit Our Office', details: ['32, 1St Main Road, Ayyappa Nagar, Virugambakkam, Chennai-600092.'] },
   ];
 

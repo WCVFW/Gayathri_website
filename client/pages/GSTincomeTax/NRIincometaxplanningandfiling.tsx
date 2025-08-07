@@ -45,7 +45,7 @@ const NriIncomeTax = () => {
   ];
 
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+    <div className="px-6 md:px-16 py-8 font-poppins">
       <h1 className="text-2xl md:text-3xl font-semibold mb-4">
         NRI Income Tax Planning & Filing - A Complete Guide
       </h1>

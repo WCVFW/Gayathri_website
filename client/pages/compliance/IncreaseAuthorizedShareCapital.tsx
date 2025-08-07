@@ -140,7 +140,7 @@ const IncreaseAuthorizedShareCapital: React.FC = () => {
   ];
 
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+    <div className="px-6 md:px-16 py-8 font-poppins">
       <h1 className="text-3xl md:text-4xl font-bold text-navy mb-6">
         Increase Authorized Share Capital
       </h1>

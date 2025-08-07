@@ -54,7 +54,7 @@ const DINSurrender = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12 text-gray-800">
+    <div className="px-6 md:px-16 py-8 text-gray-800">
       <h1 className="text-4xl font-bold mb-6 text-navy">DIN Surrender</h1>
       <div className="sticky top-20 z-10 bg-white shadow-sm">
         <div className="flex flex-wrap max-w-screen-xl">

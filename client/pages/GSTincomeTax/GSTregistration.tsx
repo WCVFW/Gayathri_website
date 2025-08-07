@@ -41,7 +41,7 @@ const GstRegistration = () => {
   ];
 
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins px-4">
+    <div className="px-6 md:px-16 py-8 font-poppins px-4">
       <h1 className="text-3xl font-semibold mb-6">GST Registration</h1>
 
       {/* Sticky Navigation */}

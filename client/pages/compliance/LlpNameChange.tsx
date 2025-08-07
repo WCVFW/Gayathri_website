@@ -26,7 +26,7 @@ const LlpNameChange: React.FC = () => {
     }
   };
   return (
-    <div className="py-10 max-w-6xl mx-auto text-gray-800 font-poppins">
+    <div className="px-6 md:px-16 py-8 font-poppins">
       <h2 className="text-3xl font-bold text-navy">LLP Name Change </h2>
       <div className="sticky top-20 z-10 bg-white shadow-sm">
         <div className="flex flex-wrap max-w-screen-xl">

@@ -16,7 +16,7 @@ const sections = [
 ]
 const Section8CompanyPage = () => {
     return (
-        <section className="max-w-6xl mx-auto p-6 text-gray-800" id="section-8">
+        <section className="px-6 md:px-16 py-8" id="section-8">
             <div className="container main-table">
                 <div className="row">
                     <div className="col-md-12">

@@ -49,7 +49,7 @@ const SoleProprietorshipRegistration = () => {
 
 
   return (
-    <div className="px-6 py-10 max-w-5xl mx-auto text-gray-800 font-poppins">
+    <div className="px-6 md:px-16 py-8">
       <h1 className="text-2xl md:text-3xl font-semibold text-left mb-4 tracking-wide leading-snug">
         Sole Proprietorship Registration
       </h1>
