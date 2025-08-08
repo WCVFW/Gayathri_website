@@ -118,7 +118,7 @@ export function Footer() {
               </div>
             </div>
             <p className="opacity-90 text-white">
-              Chartered Accountancy firm with over 25 years of expertise delivering business, compliance, and tax solutions.
+              Chartered Accountancy firm with over 10 years of expertise delivering business, compliance, and tax solutions.
             </p>
             <div className="flex gap-4">
               <a href="#" className="hover:opacity-100 opacity-80"><Linkedin size={18} /></a>
